@@ -1,0 +1,62 @@
+/* Final production layer: accessibility, responsive stability and small-screen polish. */
+html{scroll-behavior:smooth;scroll-padding-top:84px;overflow-x:clip}
+body{overflow-x:clip;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+section[id]{scroll-margin-top:84px}
+a,button{touch-action:manipulation}
+a:focus-visible,button:focus-visible{outline:2px solid #7ea9ff;outline-offset:4px;border-radius:8px}
+button{font:inherit}
+img,svg{max-width:100%}
+
+/* Keep important controls comfortable on touch devices. */
+.button,.menu-button,.nav-links a{min-height:42px}
+.menu-button{min-width:42px}
+
+/* Avoid accidental text collisions in the large product scenes. */
+.hero-content,.scene-copy,.section-heading,.operations-intro,.offline-copy,.export-copy,.horizon-copy{position:relative;z-index:3}
+.route-canvas,.scene-visual,.operations-stage,.trace-stage,.intelligence-stage{min-width:0}
+
+@media(max-width:1080px){
+  .container{width:min(100% - 40px,1180px)}
+  .hero h1{font-size:clamp(58px,8.5vw,104px)}
+  .hero-content>p{max-width:650px}
+  .scene-grid,.offline-grid,.export-grid,.horizon-grid{gap:48px}
+}
+
+@media(max-width:820px){
+  .container{width:min(100% - 30px,1180px)}
+  .section{padding-top:96px;padding-bottom:96px}
+  .hero{min-height:100svh}
+  .hero-content{padding-top:124px;padding-bottom:120px}
+  .hero h1{font-size:clamp(52px,14vw,84px);line-height:.94}
+  .hero-content>p{font-size:17px;line-height:1.65;max-width:580px}
+  .hero-proof{gap:10px 18px;flex-wrap:wrap}
+  .nav-links.open{max-height:calc(100svh - 72px);overflow:auto}
+  .scene-grid,.offline-grid,.export-grid,.horizon-grid{grid-template-columns:1fr!important;gap:46px}
+  .scene.reverse .scene-copy,.scene.reverse .scene-visual{order:initial}
+  .scene-copy,.section-heading,.operations-intro,.offline-copy,.export-copy,.horizon-copy{max-width:680px}
+  .live-console,.trace-console,.quality-console,.field-status-console,.readiness-console,.export-console{width:100%;max-width:100%}
+  .flow-rail{overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none}
+  .flow-rail::-webkit-scrollbar{display:none}
+}
+
+@media(max-width:560px){
+  .container{width:min(100% - 22px,1180px)}
+  .section{padding-top:78px;padding-bottom:78px}
+  .hero-content{padding-top:112px;padding-bottom:104px}
+  .hero h1{font-size:clamp(44px,15vw,68px)}
+  .hero-actions{align-items:flex-start;flex-direction:column;gap:18px}
+  .hero-proof{font-size:11px}
+  .scene-copy h2,.section-heading h2,.operations-intro h2,.offline-copy h2,.export-copy h2,.horizon-copy h2,.cta h2{font-size:clamp(38px,12vw,58px);line-height:.98}
+  .scene-copy p,.section-heading p,.operations-intro p,.offline-copy p,.export-copy p,.horizon-copy p,.cta p{font-size:16px;line-height:1.68}
+  .field-context-node{display:none}
+  .live-tabs{overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+  .live-tabs::-webkit-scrollbar{display:none}
+  .live-table{overflow-x:auto}
+  .trace-fields{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .quality-kpis,.live-kpis{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+}
