@@ -13,6 +13,7 @@ import './process-polish.css';
 import './ambient-motion.css';
 import './production-final.css';
 import './postfield-upgrade.css';
+import './brand-logo.css';
 import './content-polish.js';
 import './postfield-upgrade.js';
 
