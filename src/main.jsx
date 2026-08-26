@@ -7,6 +7,7 @@ import './product-intelligence.css';
 import './commercial-polish.css';
 import './landing-v2.css';
 import './visual-upgrade.css';
+import './hero-mobility.css';
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
