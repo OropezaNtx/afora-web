@@ -1,0 +1,187 @@
+/* Stable hero traffic layer.
+   Keeps the original full-bleed hero composition and only animates agents.
+   Layout dimensions never animate, so the headline does not shift. */
+
+.hero > .route-canvas {
+  contain: layout paint;
+}
+
+.hero > .route-canvas .route-line {
+  stroke-dasharray: 10 8;
+  animation: hero-route-flow 20s linear infinite;
+}
+
+@keyframes hero-route-flow {
+  to { stroke-dashoffset: -360; }
+}
+
+/* Intersections are fixed reference points, not moving decoration. */
+.hero > .route-canvas .route-junction {
+  opacity: .72;
+  animation: hero-junction-pulse 3.8s ease-in-out infinite;
+}
+
+.hero > .route-canvas .junction-b { animation-delay: -1.9s; }
+
+@keyframes hero-junction-pulse {
+  0%,100% { box-shadow: 0 0 0 5px rgba(103,167,255,.035), 0 0 12px rgba(103,167,255,.12); }
+  50% { box-shadow: 0 0 0 9px rgba(103,167,255,.055), 0 0 24px rgba(103,167,255,.28); }
+}
+
+/* The five existing dots become coordinated mobile agents.
+   Only transform/opacity animate: no layout reflow, no jumping hero. */
+.hero > .route-canvas .moving-dot,
+.hero > .route-canvas .route-node {
+  will-change: transform, opacity;
+  z-index: 4;
+  width: 9px;
+  height: 9px;
+  background: #79adff;
+  border: 2px solid #c7dcff;
+  box-shadow: 0 0 0 5px rgba(103,167,255,.055), 0 0 20px rgba(103,167,255,.5);
+}
+
+/* Main vehicle: advances, waits at two controlled points, then continues. */
+.hero > .route-canvas .moving-dot {
+  left: 22%;
+  top: 67%;
+  animation: hero-car-main 13.5s linear infinite !important;
+}
+
+@keyframes hero-car-main {
+  0%   { transform: translate3d(0,0,0); opacity:.15; }
+  5%   { opacity:1; }
+  22%  { transform: translate3d(116px,-75px,0); }
+  31%  { transform: translate3d(190px,-92px,0); }
+  38%  { transform: translate3d(190px,-92px,0); } /* stop */
+  54%  { transform: translate3d(315px,-173px,0); }
+  66%  { transform: translate3d(395px,-232px,0); }
+  72%  { transform: translate3d(395px,-232px,0); } /* stop */
+  88%  { transform: translate3d(525px,-310px,0); }
+  100% { transform: translate3d(610px,-360px,0); opacity:.18; }
+}
+
+/* Second car follows the same corridor with enough temporal separation. */
+.hero > .route-canvas .node-a {
+  left: 27%;
+  top: 64%;
+  animation: hero-car-follow 15s linear infinite !important;
+  animation-delay: -7.2s !important;
+}
+
+@keyframes hero-car-follow {
+  0%   { transform: translate3d(0,0,0); opacity:.12; }
+  8%   { opacity:1; }
+  24%  { transform: translate3d(100px,-58px,0); }
+  34%  { transform: translate3d(174px,-79px,0); }
+  42%  { transform: translate3d(174px,-79px,0); } /* yield */
+  57%  { transform: translate3d(284px,-150px,0); }
+  70%  { transform: translate3d(372px,-214px,0); }
+  78%  { transform: translate3d(372px,-214px,0); } /* yield */
+  92%  { transform: translate3d(486px,-279px,0); }
+  100% { transform: translate3d(548px,-318px,0); opacity:.12; }
+}
+
+/* Cross traffic uses green to read as another corridor. It reaches the
+   intersection during the main vehicle's waiting window, then clears it. */
+.hero > .route-canvas .node-b,
+.hero > .route-canvas .node-d {
+  background:#68dfa9;
+  border-color:#c8ffe9;
+  box-shadow:0 0 0 5px rgba(104,223,169,.055),0 0 20px rgba(104,223,169,.42);
+}
+
+.hero > .route-canvas .node-b {
+  left: 48%;
+  top: 44%;
+  animation: hero-cross-in 11.5s linear infinite !important;
+  animation-delay: -1.2s !important;
+}
+
+@keyframes hero-cross-in {
+  0%   { transform:translate3d(-54px,-102px,0); opacity:.12; }
+  12%  { opacity:1; }
+  34%  { transform:translate3d(-18px,-42px,0); }
+  46%  { transform:translate3d(0,0,0); }
+  55%  { transform:translate3d(0,0,0); } /* controlled stop */
+  72%  { transform:translate3d(38px,38px,0); }
+  100% { transform:translate3d(92px,92px,0); opacity:.12; }
+}
+
+.hero > .route-canvas .node-d {
+  left: 66%;
+  top: 31%;
+  animation: hero-cross-out 12.8s linear infinite !important;
+  animation-delay: -7.4s !important;
+}
+
+@keyframes hero-cross-out {
+  0%   { transform:translate3d(-72px,68px,0); opacity:.12; }
+  14%  { opacity:1; }
+  34%  { transform:translate3d(-28px,26px,0); }
+  46%  { transform:translate3d(0,0,0); }
+  58%  { transform:translate3d(0,0,0); } /* wait */
+  76%  { transform:translate3d(44px,-36px,0); }
+  100% { transform:translate3d(96px,-82px,0); opacity:.12; }
+}
+
+/* A third blue agent operates farther ahead so the route always feels alive
+   without clustering at the same intersection. */
+.hero > .route-canvas .node-c {
+  left: 73%;
+  top: 27%;
+  animation: hero-car-ahead 14.5s linear infinite !important;
+  animation-delay: -4.5s !important;
+}
+
+@keyframes hero-car-ahead {
+  0%   { transform:translate3d(-120px,82px,0); opacity:.12; }
+  8%   { opacity:1; }
+  27%  { transform:translate3d(-70px,52px,0); }
+  38%  { transform:translate3d(-38px,28px,0); }
+  46%  { transform:translate3d(-38px,28px,0); } /* short stop */
+  63%  { transform:translate3d(16px,-8px,0); }
+  80%  { transform:translate3d(76px,-48px,0); }
+  100% { transform:translate3d(138px,-88px,0); opacity:.12; }
+}
+
+/* Labels remain readable: they do not animate with traffic. */
+.hero > .route-canvas .map-label {
+  z-index:5;
+  transition:none;
+}
+
+/* Prevent the animated layer from visually swallowing the message. */
+@media (min-width: 981px) {
+  .hero > .route-canvas {
+    left: 39% !important;
+    top: 12% !important;
+    opacity:.9 !important;
+    transform:scale(1.04) !important;
+  }
+  .hero > .route-canvas .map-grid {
+    opacity:.66;
+    mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.38) 12%,#000 35%,#000 100%);
+  }
+  .hero > .route-canvas svg {
+    opacity:.94;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero > .route-canvas .moving-dot,
+  .hero > .route-canvas .route-node,
+  .hero > .route-canvas .route-line,
+  .hero > .route-canvas .route-junction {
+    animation:none !important;
+  }
+}
+
+@media (max-width: 980px) {
+  /* Keep the established mobile composition; reduce agent travel so dots
+     remain inside the visual rather than crossing copy. */
+  .hero > .route-canvas .moving-dot,
+  .hero > .route-canvas .route-node {
+    animation:none !important;
+  }
+}
