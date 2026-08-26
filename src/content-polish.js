@@ -8,37 +8,76 @@ const setHTML = (selector, value) => {
   if (el) el.innerHTML = value;
 };
 
+function insertLifecycleSection() {
+  if (document.querySelector('.lifecycle-section')) return;
+  const firstScene = document.querySelector('.scene');
+  if (!firstScene) return;
+
+  const section = document.createElement('section');
+  section.className = 'lifecycle-section section';
+  section.innerHTML = `
+    <div class="container lifecycle-grid">
+      <div class="lifecycle-copy reveal visible">
+        <span class="eyebrow">ANTES DEL LEVANTAMIENTO</span>
+        <h2>La operación empieza<br/><em>en el catálogo.</em></h2>
+        <p>AFORA parte de una estructura definida antes de salir: el levantamiento se prepara, se carga a la base operativa, se asigna y llega al dispositivo con el contexto que necesita el equipo de campo.</p>
+        <div class="lifecycle-note"><span></span><b>La captura no empieza desde cero.</b><small>Empieza con una operación identificada y preparada.</small></div>
+      </div>
+      <div class="lifecycle-visual reveal visible" aria-label="Flujo de preparación de un levantamiento en AFORA">
+        <div class="lifecycle-line"></div>
+        <article class="life-step active"><i>01</i><strong>Catálogo</strong><span>ruta · sentido · parámetros</span><b>ORIGEN</b></article>
+        <article class="life-step"><i>02</i><strong>Base operativa</strong><span>levantamiento disponible</span><b>CARGADO</b></article>
+        <article class="life-step"><i>03</i><strong>Asignación</strong><span>equipo · operador · unidad</span><b>LISTO</b></article>
+        <article class="life-step field"><i>04</i><strong>AFORA Field</strong><span>captura · GPS · eventos</span><b>CAMPO</b></article>
+        <article class="life-step operations"><i>05</i><strong>Operations</strong><span>sync · supervisión · control</span><b>VISIBLE</b></article>
+        <span class="life-packet p1"></span><span class="life-packet p2"></span><span class="life-packet p3"></span>
+      </div>
+    </div>`;
+  firstScene.parentNode.insertBefore(section, firstScene);
+}
+
 function applyAforaCopy() {
-  // Hero: explain the product in one pass.
   setText('.hero-eyebrow', '• OPERACIONES DE CAMPO, CONECTADAS.');
-  setHTML('.hero h1', 'Del catálogo al campo.<br/><em>Del campo a decisiones.</em>');
-  setText('.hero-content > p', 'AFORA organiza el levantamiento desde antes de salir: carga catálogos y asignaciones, guía la captura, registra GPS y eventos, trabaja sin señal, sincroniza y permite supervisar la operación desde un mismo sistema.');
+  setHTML('.hero h1', 'Del catálogo al campo.<br/><em>Del campo al control.</em>');
+  setText('.hero-content > p', 'AFORA organiza el levantamiento desde su preparación: carga la operación, guía la captura, registra GPS y eventos, funciona sin señal, sincroniza y deja la información lista para supervisar, validar y entregar.');
 
   const proof = document.querySelectorAll('.hero-proof span');
-  ['Catálogo + asignación', 'Captura + GPS + eventos', 'Trabajo offline', 'Supervisión + entrega'].forEach((text, i) => { if (proof[i]) proof[i].textContent = text; });
+  ['Catálogo + asignación', 'Captura + GPS', 'Trabajo offline', 'Supervisión + entrega'].forEach((text, i) => { if (proof[i]) proof[i].textContent = text; });
 
-  // Problem / value proposition.
   setText('.statement .eyebrow', 'UNA OPERACIÓN, NO ARCHIVOS SUELTOS');
-  setHTML('.statement h2', 'La información se conecta<br/>desde el origen.');
-  setText('.statement .narrow > p', 'Cuando catálogo, captura, GPS, incidencias y archivos viven separados, el equipo termina reconstruyendo el levantamiento al final. AFORA conserva esa relación desde que la operación se prepara hasta que se entrega.');
+  setHTML('.statement h2', 'Capturar no debería crear<br/>más trabajo después.');
+  setText('.statement .narrow > p', 'Cuando captura, GPS, archivos e incidencias viven por separado, el equipo termina uniendo, limpiando y reconstruyendo lo que pasó. AFORA mantiene ese contexto unido desde el origen.');
 
-  // Process comparison.
-  setText('.transformation-copy .eyebrow', 'MENOS TRABAJO DESPUÉS DEL CAMPO');
-  setHTML('.transformation-copy h2', 'Preparar bien.<br/><em>Capturar una vez.</em>');
-  setText('.transformation-copy > p', 'El flujo comienza con el catálogo del levantamiento. Se carga a la plataforma, se asigna al equipo y llega al dispositivo con la estructura que necesita. Desde ahí, cada captura conserva ruta, tiempo, ubicación y contexto para reducir unión, depuración y limpieza posteriores.');
+  setText('.transformation-copy .eyebrow', 'MENOS POSTPROCESO');
+  setHTML('.transformation-copy h2', 'Preparar una vez.<br/><em>Conservar el contexto.</em>');
+  setText('.transformation-copy > p', 'El flujo tradicional suele continuar después del campo con unión de bases, depuración, limpieza y preparación de archivos. AFORA busca integrar esa estructura desde el catálogo y la captura para que el cierre se concentre en validar, exportar y analizar.');
 
-  // Main operational flow.
   setText('#platform .eyebrow', 'EL CICLO COMPLETO');
-  setHTML('#platform h2', 'Preparar. Levantar. Supervisar.<br/><em>Entregar.</em>');
-  setText('#platform .section-heading > p', 'AFORA conecta planeación y trabajo de campo en un mismo recorrido operativo: catálogo, asignación, dispositivo, captura, sincronización, control y salida.');
+  setHTML('#platform h2', 'Una operación,<br/><em>de principio a fin.</em>');
+  setText('#platform .section-heading > p', 'El levantamiento nace en el catálogo, llega al dispositivo, se ejecuta en campo y continúa hacia sincronización, supervisión, validación y entrega.');
 
-  // Scenes.
+  const flowLabels = [
+    ['Catalogar', 'ruta + parámetros'],
+    ['Cargar', 'base operativa'],
+    ['Preparar', 'equipo + GPS'],
+    ['Capturar', 'dato + contexto'],
+    ['Sincronizar', 'offline + cloud'],
+    ['Supervisar', 'control + salida'],
+  ];
+  document.querySelectorAll('.flow-step').forEach((step, i) => {
+    const strong = step.querySelector('strong'); const small = step.querySelector('small');
+    if (flowLabels[i] && strong) strong.textContent = flowLabels[i][0];
+    if (flowLabels[i] && small) small.textContent = flowLabels[i][1];
+  });
+
+  insertLifecycleSection();
+
   const scenes = document.querySelectorAll('.scene');
   const sceneCopy = [
-    ['01 · PREPARACIÓN', 'El levantamiento empieza <em>antes de salir.</em>', 'Catálogos, rutas, folios y parámetros se preparan primero. En el dispositivo, AFORA valida GPS, batería, almacenamiento y permisos para reducir fallas antes de iniciar.'],
-    ['02 · GPS Y RECORRIDO', 'Cada punto explica <em>qué ocurrió y dónde.</em>', 'AFORA registra el recorrido de forma continua y relaciona eventos, demoras y tiempos con su posición. El resultado no es solo una línea en el mapa: es una operación georreferenciada.'],
-    ['03 · CAPTURA EN CAMPO', 'Capturar rápido.<br/><em>Con estructura.</em>', 'La interfaz está diseñada para registrar información durante el movimiento sin separar el dato de su contexto. Cada evento queda asociado al levantamiento activo, su momento y su ubicación.'],
-    ['04 · CONTROL EN CAMPO', 'El operador sabe <em>si todo va bien.</em>', 'Tiempo de levantamiento, calidad GPS, registros locales, respaldo y eventos permanecen visibles durante la operación. Los problemas se detectan mientras todavía pueden corregirse.'],
+    ['01 · EQUIPO LISTO', 'Antes de capturar,<br/><em>comprueba el dispositivo.</em>', 'AFORA revisa ubicación, servicios GPS, batería, almacenamiento y ejecución en segundo plano antes de iniciar. La conectividad ayuda a sincronizar, pero no es requisito para trabajar.'],
+    ['02 · GPS Y RECORRIDO', 'Cada recorrido queda<br/><em>trazado.</em>', 'El GPS se registra durante la operación y mantiene relación con eventos, demoras y tiempos. Así puedes revisar no solo por dónde pasó el equipo, sino qué ocurrió en cada momento.'],
+    ['03 · CAPTURA EN CAMPO', 'Captura lo que ocurre.<br/><em>En el momento.</em>', 'La interfaz está pensada para registrar información mientras la operación está en movimiento. En movilidad, AFORA ya relaciona ascensos, descensos, ocupación, demoras y eventos con el levantamiento activo.'],
+    ['04 · ESTADO OPERATIVO', 'El operador sabe<br/><em>si el levantamiento está sano.</em>', 'Tiempo, calidad GPS, muestras guardadas, respaldo y eventos permanecen visibles durante el trabajo. Eso permite detectar problemas mientras todavía pueden corregirse.'],
   ];
   scenes.forEach((scene, i) => {
     if (!sceneCopy[i]) return;
@@ -47,51 +86,42 @@ function applyAforaCopy() {
     if (e) e.textContent = eyebrow; if (h) h.innerHTML = title; if (p) p.textContent = copy;
   });
 
-  // Offline.
   setText('.offline .eyebrow', '05 · CONTINUIDAD OFFLINE');
   setHTML('.offline h2', 'Sin señal,<br/><em>el trabajo continúa.</em>');
-  setText('.offline-copy > p', 'La captura se guarda primero en el dispositivo. Cuando vuelve la conectividad, AFORA reintenta, sincroniza y verifica lo pendiente sin obligar al equipo a detener el levantamiento.');
-  setText('.offline-fact span', 'La conectividad ayuda a sincronizar; no decide si el campo puede trabajar.');
+  setText('.offline-copy > p', 'AFORA guarda primero la operación en el dispositivo. Cuando vuelve la conectividad, reintenta y sincroniza lo pendiente sin obligar al equipo a detener el levantamiento.');
+  setText('.offline-fact span', 'La red sincroniza la información; no decide si el campo puede trabajar.');
 
-  // Operations.
   setText('.operations-intro .eyebrow', '06 · SUPERVISIÓN EN VIVO');
-  setHTML('.operations-intro h2', 'El campo deja de ser<br/><em>un punto ciego.</em>');
-  setText('.operations-intro > p', 'Desde el Centro de Operaciones puedes ver qué equipos están trabajando, dónde se encuentran, cuándo reportaron, cómo está su GPS, batería y sincronización, y qué levantamientos necesitan atención.');
+  setHTML('.operations-intro h2', 'Supervisa lo que está<br/><em>pasando en campo.</em>');
+  setText('.operations-intro > p', 'El Centro de Operaciones muestra equipos activos, ubicación, GPS, energía, último reporte y estado de sincronización para entender la operación mientras sucede.');
 
-  // Traceability.
   setText('.traceability .eyebrow', '07 · TRAZABILIDAD');
-  setHTML('.traceability h2', 'Cada levantamiento conserva<br/><em>su historia completa.</em>');
-  setText('.traceability .section-heading > p', 'Ruta, folio, operador, unidad, horarios, track y eventos permanecen vinculados. Puedes revisar qué ocurrió sin reconstruir la operación a partir de archivos separados.');
+  setHTML('.traceability h2', 'Termina el levantamiento.<br/><em>No pierdas la historia.</em>');
+  setText('.traceability .section-heading > p', 'Ruta, folio, operador, unidad, horarios, track y eventos quedan vinculados en una misma operación para poder revisar qué ocurrió sin reconstruirlo desde archivos separados.');
 
-  // Integrity.
-  setText('.intelligence .eyebrow', '08 · CONTROL DE CALIDAD');
-  setHTML('.intelligence h2', 'Detecta qué revisar.<br/><em>Y por qué.</em>');
-  setText('.intelligence .section-heading > p', 'AFORA cruza señales de GPS, conectividad, dispositivo y sincronización para señalar operaciones incompletas, degradadas o fuera de condición y concentrar la revisión donde hace falta.');
+  setText('.intelligence .eyebrow', '08 · INTEGRIDAD Y CALIDAD');
+  setHTML('.intelligence h2', 'Revisa primero lo que<br/><em>necesita atención.</em>');
+  setText('.intelligence .section-heading > p', 'AFORA utiliza señales de GPS, red, dispositivo y sincronización para identificar operaciones incompletas o degradadas y mostrar qué dominio conviene revisar.');
 
-  // Exports.
   setText('.exports .eyebrow', '09 · SALIDAS Y ENTREGA');
-  setHTML('.exports h2', 'Datos listos para<br/><em>seguir trabajando.</em>');
-  setText('.export-copy > p', 'La operación puede salir a formatos tabulares, geoespaciales y de auditoría. La información conserva estructura y contexto para continuar en Excel, GIS, análisis o procesos de entrega.');
+  setHTML('.exports h2', 'Información lista para<br/><em>seguir trabajando.</em>');
+  setText('.export-copy > p', 'La operación puede continuar hacia Excel, datos tabulares, GIS, revisión o auditoría mediante salidas estructuradas y geoespaciales que conservan el contexto del levantamiento.');
 
-  // Modules.
   setText('.modules .eyebrow', '10 · MÓDULOS DE LEVANTAMIENTO');
-  setHTML('.modules h2', 'Distintos estudios.<br/><em>Un mismo núcleo operativo.</em>');
-  setText('.modules .section-heading > p', 'ASD, Cierre de Circuito y Frecuencia Observable comparten GPS, operación local, sincronización, trazabilidad y supervisión. Cambia el levantamiento; la base tecnológica permanece.');
+  setHTML('.modules h2', 'Un núcleo.<br/><em>Distintos levantamientos.</em>');
+  setText('.modules .section-heading > p', 'ASD, Cierre de Circuito y Frecuencia Observable comparten GPS, almacenamiento local, sincronización, trazabilidad y supervisión. Cambia el estudio; la base operativa permanece.');
 
-  // Product direction.
   setText('.horizon .eyebrow', 'PLATAFORMA EN EVOLUCIÓN');
-  setHTML('.horizon h2', 'Una base sólida.<br/><em>Más operaciones sobre ella.</em>');
-  setText('.horizon-copy > p', 'AFORA está creciendo como una plataforma configurable para operaciones de campo. El objetivo es reutilizar un mismo núcleo de identidad, catálogos, GPS, almacenamiento local, sincronización, control y supervisión en nuevos tipos de levantamiento.');
+  setHTML('.horizon h2', 'Lo que ya funciona.<br/><em>Y la base para crecer.</em>');
+  setText('.horizon-copy > p', 'AFORA ya conecta captura, GPS, operación local, sincronización, supervisión, integridad y exportación. El producto continúa evolucionando para reutilizar ese núcleo en más operaciones de campo.');
 
-  // Ecosystem.
   setText('.ecosystem .eyebrow', 'MÁS ALLÁ DE MOVILIDAD');
-  setHTML('.ecosystem h2', 'La misma lógica para<br/><em>distintas operaciones de campo.</em>');
-  setText('.ecosystem .section-heading > p', 'Movilidad es el punto de partida. El mismo núcleo puede adaptarse a levantamientos, inspecciones, inventarios y auditorías donde importan ubicación, evidencia, trazabilidad y control operativo.');
+  setHTML('.ecosystem h2', 'La misma base para<br/><em>otros trabajos de campo.</em>');
+  setText('.ecosystem .section-heading > p', 'Movilidad es el entorno donde AFORA ya se está probando. Su núcleo está pensado para operaciones donde importan ubicación, captura estructurada, trazabilidad, supervisión e información de salida.');
 
-  // CTA.
   setText('.cta .eyebrow', 'AFORA · FIELD OPERATIONS PLATFORM');
   setHTML('.cta h2', 'Del catálogo a la entrega.<br/>Todo conectado.');
-  setText('.cta-content > p', 'Conoce cómo AFORA puede estructurar tu operación de campo, reducir retrabajo y dar visibilidad al levantamiento mientras sucede.');
+  setText('.cta-content > p', 'Conoce cómo AFORA puede organizar una operación de campo, reducir trabajo posterior y dar visibilidad al levantamiento desde que se prepara hasta que se entrega.');
 }
 
 if (typeof window !== 'undefined') {
