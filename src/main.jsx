@@ -8,6 +8,7 @@ import './commercial-polish.css';
 import './landing-v2.css';
 import './visual-upgrade.css';
 import './hero-traffic.css';
+import './network-maps.css';
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
