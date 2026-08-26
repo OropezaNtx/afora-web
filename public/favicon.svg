@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="AFORA">
+  <rect width="64" height="64" rx="16" fill="#05070a"/>
+  <path d="M14 45 27 17h10l13 28h-9l-2.7-6.4H25.4L22.8 45H14Zm14.2-13.9h7.3L31.9 22l-3.7 9.1Z" fill="#eef4fc"/>
+  <circle cx="47" cy="17" r="4" fill="#7ea9ff"/>
+</svg>
