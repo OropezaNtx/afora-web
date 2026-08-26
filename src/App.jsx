@@ -117,12 +117,23 @@ function FieldGpsVisual() {
         <path className="gps-road faint" d="M42 340 C120 288 182 310 230 260 C282 205 350 238 402 190 C454 142 523 172 574 112 C615 64 684 106 720 48" />
         <path className="gps-road draw" d="M42 340 C120 288 182 310 230 260 C282 205 350 238 402 190 C454 142 523 172 574 112 C615 64 684 106 720 48" />
       </svg>
-      <span className="gps-marker marker-start">INICIO</span>
-      <span className="gps-marker marker-a">ASD</span>
-      <span className="gps-marker marker-b delay">D</span>
-      <span className="gps-marker marker-c combo">A+D</span>
-      <span className="gps-marker marker-end">FIN</span>
+      <span className="gps-marker marker-start">INICIO</span><span className="gps-marker marker-a">ASD</span><span className="gps-marker marker-b delay">D</span><span className="gps-marker marker-c combo">A+D</span><span className="gps-marker marker-end">FIN</span>
       <div className="gps-summary"><div><span>DISTANCIA</span><strong>7.22 km</strong></div><div><span>DURACIÓN</span><strong>1 h 49 m</strong></div><div><span>EVENTOS</span><strong>8</strong></div><div><span>PRECISIÓN</span><strong>±8 m</strong></div></div>
+    </div>
+  );
+}
+
+function FieldStatusVisual() {
+  return (
+    <div className="field-status-console" aria-label="Estado operacional del levantamiento en AFORA Field">
+      <div className="field-status-head"><span>AFORA FIELD</span><strong>RUTA 2 · BUENA VISTA</strong><i>EN TIEMPO REAL</i></div>
+      <div className="field-status-grid">
+        <div className="field-status-card primary"><span>TIEMPO DEL LEVANTAMIENTO</span><strong>53:37</strong><small>Operación en curso</small></div>
+        <div className="field-status-card"><span>ESTADO DEL RASTREO</span><strong className="ok">RASTREO EXCELENTE</strong><small>±6 m · última señal 1 s · 1,601 puntos</small></div>
+        <div className="field-status-card"><span>RESPALDO EN LA NUBE</span><strong className="ok">GUARDADO</strong><small>0 pendientes · último envío 23:27:21</small></div>
+        <div className="field-status-card summary"><span>RESUMEN OPERATIVO</span><div><b>4<small>EVENTOS</small></b><b className="up">14<small>SUBEN</small></b><b className="down">2<small>BAJAN</small></b><b>12<small>A BORDO</small></b></div></div>
+      </div>
+      <div className="event-history"><span>HISTORIAL DE EVENTOS</span><div><b>WP 257 → WP 258</b><strong>SUBEN: 4 · BAJAN: 2</strong><small>AD · 23:27:04</small></div><div><b>WP 255 → WP 256</b><strong>SUBEN: 6 · BAJAN: 0</strong><small>AD · 23:26:55</small></div></div>
     </div>
   );
 }
@@ -130,9 +141,7 @@ function FieldGpsVisual() {
 function EvidenceVisual() {
   return (
     <div className="evidence-frame">
-      <div className="evidence-photo" style={{ backgroundImage: `linear-gradient(180deg, rgba(5,6,8,.08), rgba(5,6,8,.68)), url(${ASSETS.evidence})` }}>
-        <div className="evidence-placeholder"><MapPin size={25} /><span>Evidencia asociada</span></div>
-      </div>
+      <div className="evidence-photo" style={{ backgroundImage: `linear-gradient(180deg, rgba(5,6,8,.08), rgba(5,6,8,.68)), url(${ASSETS.evidence})` }}><div className="evidence-placeholder"><MapPin size={25} /><span>Evidencia asociada</span></div></div>
       <div className="evidence-data"><small>EVIDENCIA DE CAMPO</small><strong>Ligada a la operación</strong><span>Ubicación</span><span>Momento</span><span>Contexto operativo</span><div className="evidence-status"><i /> Disponible para revisión</div></div>
     </div>
   );
@@ -154,14 +163,9 @@ function OperationsLiveVisual() {
       <div className="live-topbar"><strong>Centro de Operaciones AFORA</strong><span>Actualizar ↻</span></div>
       <div className="live-tabs"><b>Dashboard</b><b>Levantamientos</b><b>Integridad</b><b>Inteligencia</b><b className="active">Equipos en Vivo</b><b>Estado de Flota</b></div>
       <div className="live-title"><div><span>OPERACIÓN ACTIVA</span><strong>Equipos en Tiempo Real</strong><small>Ubicación operativa de los equipos transmitiendo actualmente.</small></div><div className="live-count"><strong>1</strong><span>punto activo</span></div></div>
-      <div className="live-map">
-        <div className="gps-grid" />
-        <svg viewBox="0 0 900 300" aria-hidden="true"><path d="M35 205 C160 154 258 182 356 129 C442 83 560 126 650 78 C728 36 800 68 862 36" /></svg>
-        <div className="live-device-dot"><i /><span>Equipo 08</span></div>
-        <div className="live-device-card"><div><strong>Equipo 08</strong><span>Transmitiendo</span></div><div className="device-metrics"><b>GPS OK</b><b>98%</b><b>Ahora</b><b>0 km/h</b></div><small>Sincronización · OPERANDO</small></div>
-      </div>
+      <div className="live-map"><div className="gps-grid" /><svg viewBox="0 0 900 300" aria-hidden="true"><path d="M35 205 C160 154 258 182 356 129 C442 83 560 126 650 78 C728 36 800 68 862 36" /></svg><div className="live-device-dot"><i /><span>Equipo 08</span></div><div className="live-device-card"><div><strong>Equipo 08</strong><span>Transmitiendo</span></div><div className="device-metrics"><b>GPS OK</b><b>86%</b><b>Hace 1 min</b><b>0 km/h</b></div><small>Sincronización · OPERANDO</small></div></div>
       <div className="live-kpis"><div><strong>1</strong><span>Equipos en campo</span></div><div><strong>1</strong><span>Transmitiendo</span></div><div><strong>0</strong><span>Con retraso</span></div><div><strong>0</strong><span>Requieren atención</span></div></div>
-      <div className="live-table"><div className="live-table-head"><span>ESTADO</span><span>OPERADOR / EQUIPO</span><span>UBICACIÓN</span><span>GPS</span><span>ENERGÍA</span><span>SINCRONIZACIÓN</span></div><div className="live-table-row"><span><i />Transmitiendo</span><span>Equipo 08</span><span>19.4117, -98.9626</span><span>OK</span><span>98%</span><strong>OPERANDO</strong></div></div>
+      <div className="live-table"><div className="live-table-head"><span>ESTADO</span><span>OPERADOR / EQUIPO</span><span>UBICACIÓN</span><span>GPS</span><span>ENERGÍA</span><span>SINCRONIZACIÓN</span></div><div className="live-table-row"><span><i />Transmitiendo</span><span>Equipo 08</span><span>19.4117, -98.9626</span><span>OK</span><span>86%</span><strong>OPERANDO</strong></div></div>
     </div>
   );
 }
@@ -170,23 +174,38 @@ function TraceabilityVisual() {
   return (
     <div className="trace-console">
       <div className="trace-head"><span>LEVANTAMIENTO COMPLETADO</span><strong>Una operación conserva su historia.</strong></div>
-      <div className="trace-fields">
-        <div><span>Ruta</span><b>RUTA 2</b></div><div><span>Folio</span><b>003</b></div><div><span>Sentido</span><b>IDA</b></div><div><span>Operador</span><b>CESAR FLORES</b></div><div><span>Unidad</span><b>COMBI · ECO 25</b></div><div><span>Inicio / Fin</span><b>01:53 → 03:43</b></div>
-      </div>
+      <div className="trace-fields"><div><span>Ruta</span><b>RUTA 2</b></div><div><span>Folio</span><b>003</b></div><div><span>Sentido</span><b>IDA</b></div><div><span>Operador</span><b>CESAR FLORES</b></div><div><span>Unidad</span><b>COMBI · ECO 25</b></div><div><span>Inicio / Fin</span><b>01:53 → 03:43</b></div></div>
       <div className="trace-map"><div className="gps-grid" /><svg viewBox="0 0 900 320" aria-hidden="true"><path className="trace-path" d="M70 258 C112 240 110 198 157 202 C218 208 218 158 286 171 C346 183 370 118 430 139 C493 161 492 82 557 92 C609 101 623 139 681 145 C742 151 754 207 827 211" /></svg><span className="trace-start">Inicio</span><span className="trace-delay d1" /><span className="trace-delay d2" /><span className="trace-delay d3" /><span className="trace-end">Fin</span></div>
       <div className="trace-meta"><span>3,270 puntos</span><span>8 eventos con coordenada</span><span>ASD · Demoras · Banderas</span></div>
     </div>
   );
 }
 
-function HealthPanel() {
-  const rows = [['GPS', 'HEALTHY'], ['TRACK', 'COMPLETE'], ['SYNC', 'VERIFIED'], ['DATA', 'COMPLETE']];
+function IntegrityIntelligenceVisual() {
+  const attention = [
+    ['Trip 42', 'CRITICAL', 'GPS · Red · Sync'],
+    ['Trip 46', 'CRITICAL', 'GPS · Dispositivo'],
+    ['Trip 39', 'DEGRADED', 'Red'],
+  ];
   return (
-    <div className="health-panel reveal">
-      <div className="health-head"><span>OPERATIONAL HEALTH</span><ShieldCheck size={20} /></div>
-      <div className="health-state"><i /><strong>HEALTHY</strong><span>Estado operativo</span></div>
-      <div className="health-checks">{rows.map(([label, state]) => <div key={label}><span>{label}</span><i /><strong>{state}</strong></div>)}</div>
-      <small>Los estados se derivan de la información registrada durante cada operación.</small>
+    <div className="quality-console">
+      <div className="quality-banner"><div><span>OPERATIONAL INTELLIGENCE</span><strong>Integridad e inteligencia operativa</strong><small>Convierte telemetría, GPS y sincronización en señales que ayudan a priorizar revisión.</small></div><i>QUALITY ENGINE</i></div>
+      <div className="quality-kpis"><div><span>HEALTH PROMEDIO</span><b>78/100</b></div><div><span>COBERTURA GPS</span><b>92.7%</b></div><div><span>TELEMETRÍA</span><b>73.9%</b></div><div><span>VENTANA</span><b>24</b></div></div>
+      <div className="quality-body">
+        <div className="attention-list"><div className="quality-title"><strong>Requieren atención</strong><span>3 señales prioritarias</span></div>{attention.map(([trip,state,domain]) => <div className={`attention-row ${state === 'CRITICAL' ? 'critical' : ''}`} key={trip}><i /><b>{trip}</b><span>{state}</span><small>{domain}</small></div>)}</div>
+        <div className="quality-rank"><div className="quality-title"><strong>Calidad por operador</strong><span>Health + cobertura GPS</span></div><div><b>MONICA MENDOZA</b><span>90/100</span></div><div><b>ROCIO</b><span>90/100</span></div><div><b>COORDINADOR GENERAL</b><span>78/100</span></div><div><b>CESAR FLORES</b><span>62/100</span></div></div>
+      </div>
+      <div className="quality-foot"><span>GPS</span><span>RED</span><span>DISPOSITIVO</span><span>SYNC</span><strong>Supervisión por excepción</strong></div>
+    </div>
+  );
+}
+
+function FleetVisual() {
+  return (
+    <div className="fleet-console">
+      <div className="fleet-head"><div><span>ESTADO DE FLOTA</span><strong>La salud técnica también forma parte de la operación.</strong></div><i>1 ACTIVO</i></div>
+      <div className="fleet-kpis"><div><b>1</b><span>Equipos</span></div><div><b>1</b><span>Activos</span></div><div><b>0</b><span>Sin reporte</span></div><div><b>0</b><span>Requieren atención</span></div></div>
+      <div className="fleet-device"><span className="fleet-online"><i /> EN LÍNEA</span><div><small>EQUIPO</small><strong>Xiaomi 22101320G</strong><span>Equipo 08</span></div><div><small>PROYECTO</small><strong>urban_operations</strong><span>afora</span></div><div><small>GPS</small><strong>OK</strong><span>Heartbeat</span></div><div><small>BATERÍA</small><strong>86%</strong><span>Ahora</span></div><div><small>LEVANTAMIENTO</small><strong>47</strong><span>Activo</span></div></div>
     </div>
   );
 }
@@ -225,15 +244,19 @@ function App() {
 
         <Scene eyebrow="02 · Captura" title={<>La operación sucede <em>en el momento.</em></>} copy="La interfaz de campo está pensada para registrar ascensos, descensos, ocupación y demoras sin separar el dato del recorrido que le da contexto." visual={<FieldCaptureVisual />} reverse />
 
-        <Scene eyebrow="03 · Evidencia" title={<>Lo que ocurre en campo, <em>queda ligado</em> a la operación.</>} copy="La evidencia puede conservarse junto con ubicación, momento y contexto operativo para facilitar revisión posterior." visual={<EvidenceVisual />} />
+        <Scene eyebrow="03 · Estado operativo" title={<>El operador también sabe <em>qué está pasando.</em></>} copy="Tiempo, rastreo, puntos persistidos, respaldo en nube e historial de eventos permanecen visibles durante el levantamiento." visual={<FieldStatusVisual />} />
 
-        <section className="offline section"><div className="container offline-grid"><div className="offline-copy reveal"><span className="eyebrow">04 · Offline first</span><h2>El trabajo continúa.</h2><p>Incluso cuando desaparece la señal.</p><div className="offline-fact"><WifiOff size={20} /><span>La operación se conserva localmente y la sincronización puede esperar a que regrese la conectividad.</span></div></div><OfflineSyncVisual /></div></section>
+        <Scene eyebrow="04 · Evidencia" title={<>Lo que ocurre en campo, <em>queda ligado</em> a la operación.</>} copy="La evidencia puede conservarse junto con ubicación, momento y contexto operativo para facilitar revisión posterior." visual={<EvidenceVisual />} reverse />
 
-        <section id="operations" className="operations section"><div className="container"><div className="operations-intro reveal"><span className="eyebrow">05 · Supervisión</span><h2>Del campo al<br /><em>centro de operaciones.</em></h2><p>Equipos, ubicación, GPS, energía y sincronización dejan de estar encerrados en el dispositivo y se convierten en visibilidad operacional.</p></div><div className="operations-stage reveal"><OperationsLiveVisual /></div></div></section>
+        <section className="offline section"><div className="container offline-grid"><div className="offline-copy reveal"><span className="eyebrow">05 · Offline first</span><h2>El trabajo continúa.</h2><p>Incluso cuando desaparece la señal.</p><div className="offline-fact"><WifiOff size={20} /><span>La operación se conserva localmente y la sincronización puede esperar a que regrese la conectividad.</span></div></div><OfflineSyncVisual /></div></section>
 
-        <section className="traceability section"><div className="container"><div className="section-heading reveal"><span className="eyebrow">06 · Trazabilidad</span><h2>La operación termina.<br /><em>Su historia permanece.</em></h2><p>Ruta, operador, unidad, tiempos, eventos y recorrido pueden revisarse como una misma operación.</p></div><div className="trace-stage reveal"><TraceabilityVisual /></div></div></section>
+        <section id="operations" className="operations section"><div className="container"><div className="operations-intro reveal"><span className="eyebrow">06 · Supervisión</span><h2>Del campo al<br /><em>centro de operaciones.</em></h2><p>Equipos, ubicación, GPS, energía y sincronización dejan de estar encerrados en el dispositivo y se convierten en visibilidad operacional.</p></div><div className="operations-stage reveal"><OperationsLiveVisual /></div></div></section>
 
-        <section id="integrity" className="integrity section"><div className="container integrity-grid"><div className="integrity-copy reveal"><span className="eyebrow">07 · Integridad y calidad</span><h2>Capturar no es suficiente.<br /><em>Hay que poder confiar.</em></h2><p>AFORA analiza el estado operativo de los levantamientos para ayudar a distinguir información completa de operaciones que necesitan atención.</p></div><HealthPanel /></div></section>
+        <section className="traceability section"><div className="container"><div className="section-heading reveal"><span className="eyebrow">07 · Trazabilidad</span><h2>La operación termina.<br /><em>Su historia permanece.</em></h2><p>Ruta, operador, unidad, tiempos, eventos y recorrido pueden revisarse como una misma operación.</p></div><div className="trace-stage reveal"><TraceabilityVisual /></div></div></section>
+
+        <section id="integrity" className="intelligence section"><div className="container"><div className="section-heading reveal"><span className="eyebrow">08 · Integridad e inteligencia</span><h2>No necesitas revisar todo.<br /><em>Necesitas saber dónde mirar.</em></h2><p>AFORA combina integridad, GPS, telemetría y sincronización para señalar operaciones o dispositivos que requieren atención.</p></div><div className="intelligence-stage reveal"><IntegrityIntelligenceVisual /></div></div></section>
+
+        <section className="fleet section"><div className="container fleet-grid"><div className="fleet-copy reveal"><span className="eyebrow">09 · Estado de flota</span><h2>La operación también depende del <em>dispositivo.</em></h2><p>AFORA permite observar si los equipos autorizados están en línea, reportando GPS, con energía y asociados a un levantamiento activo.</p></div><div className="reveal"><FleetVisual /></div></div></section>
 
         <section id="use-cases" className="ecosystem section"><div className="container"><div className="section-heading reveal"><span className="eyebrow">Una plataforma, diferentes operaciones</span><h2>Probado en movilidad.<br /><em>Diseñado para el campo.</em></h2><p>El núcleo de AFORA permite estructurar distintos flujos donde ubicación, tiempo, evidencia y trazabilidad importan.</p></div><div className="ecosystem-stage reveal" style={{backgroundImage:`linear-gradient(rgba(8,10,14,.88), rgba(8,10,14,.94)), url(${ASSETS.mapTexture})`}}><div className="eco-ring ring-one" /><div className="eco-ring ring-two" /><div className="eco-core"><BrandMark /><small>FIELD OPERATIONS CORE</small></div><span className="eco-node n1">Movilidad</span><span className="eco-node n2">Levantamientos</span><span className="eco-node n3">Inspecciones</span><span className="eco-node n4">Inventarios</span><span className="eco-node n5">Auditorías</span></div></div></section>
 
