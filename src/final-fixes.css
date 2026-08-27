@@ -13,7 +13,7 @@
 /* BEFORE / AFTER — editorial hierarchy */
 .transformation{padding-block:150px;background:radial-gradient(circle at 76% 28%,rgba(62,119,198,.055),transparent 34%)}
 .transformation-grid{display:grid;grid-template-columns:1fr;gap:78px;align-items:start}
-.transformation-copy{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(500px,1.04fr);column-gap:72px;row-gap:0;align-items:end}
+.transformation-copy{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(520px,1.04fr);column-gap:72px;row-gap:0;align-items:end}
 .transformation-copy>.eyebrow{grid-column:1/-1;margin-bottom:20px}
 .transformation-copy>h2{grid-column:1;grid-row:2;font-size:clamp(56px,5vw,80px);line-height:.94;max-width:670px;margin:0 0 26px}
 .transformation-copy>p{grid-column:1;grid-row:3;max-width:640px;font-size:16.5px;line-height:1.78;margin:0;color:#9ba9bc}
@@ -21,17 +21,17 @@
 .study-scale>span{min-height:104px;padding:20px 22px;border:1px solid rgba(118,164,226,.16);border-radius:18px;background:linear-gradient(150deg,rgba(15,24,36,.9),rgba(8,13,20,.74));display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:8px}
 .study-scale strong{font-size:34px;line-height:1;color:#f0f5fd;letter-spacing:-.045em}
 .study-scale small{color:#71849e;font-size:9px;line-height:1.35;text-transform:uppercase;letter-spacing:.1em}
-.time-proof{grid-column:2;grid-row:3;display:grid!important;grid-template-columns:minmax(220px,1.08fr) 30px minmax(190px,.92fr)!important;align-items:stretch;gap:10px!important;max-width:none!important;margin:0!important}
+.time-proof{grid-column:2;grid-row:3;display:grid!important;grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr)!important;align-items:stretch;gap:12px!important;max-width:none!important;margin:0!important}
 .time-proof>div:not(.time-arrow){min-height:176px;padding:24px 20px!important;border-radius:20px!important;display:flex!important;flex-direction:column;justify-content:center;min-width:0;overflow:hidden}
 .time-proof .legacy-hours{border:1px solid rgba(221,145,88,.2)!important;background:radial-gradient(circle at 82% 10%,rgba(188,101,46,.075),transparent 46%),#090d13!important}
 .time-proof .afora-time{border:1px solid rgba(97,162,248,.28)!important;background:radial-gradient(circle at 82% 8%,rgba(71,135,222,.13),transparent 48%),#09111c!important}
 .time-proof small{font-size:7.5px!important;letter-spacing:.14em;color:#6f8199!important;margin-bottom:12px}
-.time-proof strong{font-size:clamp(27px,2.2vw,37px)!important;line-height:1!important;letter-spacing:-.045em!important;color:#f2f6fc!important;white-space:nowrap;max-width:100%}
+.time-proof strong{font-size:clamp(27px,2.05vw,34px)!important;line-height:1!important;letter-spacing:-.045em!important;color:#f2f6fc!important;white-space:nowrap;max-width:100%}
 .time-proof .afora-time strong{color:#8cb9ff!important}
 .time-proof b{display:block;margin-top:7px;font-size:12px;line-height:1.2;letter-spacing:.01em;color:#aab8ca;font-weight:650}
 .time-proof .afora-time b{color:#89b6f6}
 .time-proof span{font-size:9px!important;line-height:1.5!important;color:#718198!important;margin-top:15px;max-width:220px}
-.time-arrow{display:flex!important;align-items:center;justify-content:center;color:#6fa8f8;font-size:22px;text-shadow:0 0 18px rgba(103,167,255,.3)}
+.time-arrow{display:flex!important;align-items:center!important;justify-content:center!important;align-self:center!important;justify-self:center!important;width:34px!important;min-width:34px!important;height:34px!important;min-height:34px!important;padding:0!important;margin:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;outline:0!important;color:#6fa8f8!important;font-size:22px!important;line-height:1!important;text-shadow:0 0 18px rgba(103,167,255,.3)}
 .time-disclaimer{grid-column:2;display:block;max-width:640px;margin:14px 0 0!important;color:#4f6076!important;font-size:8px!important;line-height:1.62!important}
 
 /* Process comparison — one wide cinematic sequence */
@@ -104,7 +104,7 @@
 }
 @media(max-width:900px){
   .hero{min-height:100svh;padding-bottom:80px}.hero-content{padding-bottom:130px}
-  .time-proof{grid-template-columns:1fr!important;gap:12px!important}.time-arrow{min-height:34px;transform:rotate(90deg)}
+  .time-proof{grid-template-columns:1fr!important;gap:12px!important}.time-arrow{width:34px!important;min-width:34px!important;height:34px!important;min-height:34px!important;transform:rotate(90deg)}
   .time-proof strong{white-space:normal}
   .process-side{min-height:0}.process-head{grid-template-columns:1fr;gap:10px}.process-head strong{justify-self:start;text-align:left;max-width:100%}
 }
