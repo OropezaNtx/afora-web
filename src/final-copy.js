@@ -21,7 +21,7 @@ const applyFinalCopy = () => {
   const transformationCopy = document.querySelector('.transformation-copy > p');
   if (transformationEyebrow) transformationEyebrow.textContent = 'EL TRAMO QUE AFORA OPTIMIZA';
   if (transformationTitle) transformationTitle.innerHTML = 'Del levantamiento a la entrega.<br/><em>Con menos postproceso.</em>';
-  if (transformationCopy) transformationCopy.textContent = 'AFORA se integra al flujo existente desde el levantamiento. Sustituye la cadena manual de captura, descarga y preparación del GPS, cortes, nomenclatura, cruces y conversiones por una operación digital trazable. Después de la validación y la exportación, el estudio continúa con sus procesos y herramientas habituales.';
+  if (transformationCopy) transformationCopy.textContent = 'AFORA se integra al flujo existente desde el levantamiento. Sustituye la cadena manual de captura, descarga y preparación del GPS, cortes, nomenclatura, cruces y conversiones por una operación digital trazable. Después de validar y exportar, el estudio continúa con sus procesos y herramientas habituales.';
 
   const transformationCopyBlock = document.querySelector('.transformation-copy');
   if (transformationCopyBlock) {
@@ -43,20 +43,22 @@ const applyFinalCopy = () => {
     timeProof.innerHTML = `
       <div class="legacy-hours">
         <small>TRAMO MANUAL ACTUAL</small>
-        <strong>≈1,200–1,440 h</strong>
-        <span>horas-persona de captura, GPS y preparación para entrega</span>
+        <strong>1,200–1,440</strong>
+        <b>h-persona</b>
+        <span>captura, GPS y preparación para entrega</span>
       </div>
       <div class="time-arrow" aria-hidden="true">→</div>
       <div class="afora-time">
         <small>PROYECCIÓN CON AFORA</small>
-        <strong>≈70–85% menos</strong>
-        <span>el postproceso queda concentrado en QA, excepciones y exportación</span>
+        <strong>70–85%</strong>
+        <b>menos postproceso</b>
+        <span>QA, excepciones y exportación</span>
       </div>
     `;
   }
 
   const disclaimer = document.querySelector('.time-disclaimer');
-  if (disclaimer) disclaimer.textContent = 'Proyección operativa sobre el tramo que AFORA reemplaza, tomando como referencia 60 IDs y ≈1,200–1,440 horas-persona de postproceso manual. El rango supone que captura, GPS, trazabilidad, cortes lógicos, nomenclatura y salidas quedan resueltos por la plataforma. No incluye correcciones originadas por errores de campo ni actividades posteriores de análisis, modelación o consultoría.';
+  if (disclaimer) disclaimer.textContent = 'Proyección operativa sobre el tramo que AFORA reemplaza, tomando como referencia 60 IDs y 1,200–1,440 horas-persona de postproceso manual. El rango supone que captura, GPS, trazabilidad, cortes lógicos, nomenclatura y salidas quedan resueltos por la plataforma. No incluye correcciones originadas por errores de campo ni actividades posteriores de análisis, modelación o consultoría.';
 
   const legacyHead = document.querySelector('.legacy-process .process-head small');
   const aforaHead = document.querySelector('.afora-process .process-head small');
