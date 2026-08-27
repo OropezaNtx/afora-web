@@ -19,9 +19,9 @@ const applyFinalCopy = () => {
   const transformationEyebrow = document.querySelector('.transformation-copy .eyebrow');
   const transformationTitle = document.querySelector('.transformation-copy h2');
   const transformationCopy = document.querySelector('.transformation-copy > p');
-  if (transformationEyebrow) transformationEyebrow.textContent = 'MENOS POSTPROCESO';
-  if (transformationTitle) transformationTitle.innerHTML = 'Menos trabajo después.<br/><em>Más información lista.</em>';
-  if (transformationCopy) transformationCopy.textContent = 'En estudios de gran volumen, descargar GPS, cortar recorridos, capturar formatos, cruzar información, renombrar y convertir archivos puede consumir semanas de trabajo. AFORA elimina gran parte de esa reconstrucción: al terminar el campo, el esfuerzo se concentra en QA, excepciones y entrega.';
+  if (transformationEyebrow) transformationEyebrow.textContent = 'EL TRAMO QUE AFORA OPTIMIZA';
+  if (transformationTitle) transformationTitle.innerHTML = 'Del levantamiento a la entrega.<br/><em>Con menos postproceso.</em>';
+  if (transformationCopy) transformationCopy.textContent = 'AFORA se integra al flujo existente desde el levantamiento. Sustituye la cadena manual de captura, descarga y preparación del GPS, cortes, nomenclatura, cruces y conversiones por una operación digital trazable. Después de la validación y la exportación, el estudio continúa con sus procesos y herramientas habituales.';
 
   const transformationCopyBlock = document.querySelector('.transformation-copy');
   if (transformationCopyBlock) {
@@ -33,7 +33,7 @@ const applyFinalCopy = () => {
       if (proof) transformationCopyBlock.insertBefore(scale, proof);
     }
     scale.innerHTML = `
-      <span><strong>60</strong><small>IDs de estudio</small></span>
+      <span><strong>60</strong><small>IDs de referencia</small></span>
       <span><strong>1,080</strong><small>medios recorridos</small></span>
     `;
   }
@@ -42,40 +42,44 @@ const applyFinalCopy = () => {
   if (timeProof) {
     timeProof.innerHTML = `
       <div class="legacy-hours">
-        <small>POSTPROCESO TRADICIONAL</small>
+        <small>TRAMO MANUAL ACTUAL</small>
         <strong>≈1,200–1,440 h</strong>
-        <span>descarga · captura · cortes · cruces · conversiones</span>
+        <span>horas-persona de captura, GPS y preparación para entrega</span>
       </div>
       <div class="time-arrow" aria-hidden="true">→</div>
       <div class="afora-time">
         <small>PROYECCIÓN CON AFORA</small>
-        <strong>≈85% menos</strong>
-        <span>el trabajo restante se concentra en QA, excepciones y salida</span>
+        <strong>≈70–85% menos</strong>
+        <span>el postproceso queda concentrado en QA, excepciones y exportación</span>
       </div>
     `;
   }
 
   const disclaimer = document.querySelector('.time-disclaimer');
-  if (disclaimer) disclaimer.textContent = 'Escenario de referencia: 60 IDs. La reducción ≈85% es una proyección de horas-persona de postproceso al eliminar descarga, captura, corte, renombrado, cruce y conversión manual. No incluye correcciones originadas por errores de campo; el resultado real depende del estudio y del equipo.';
+  if (disclaimer) disclaimer.textContent = 'Proyección operativa sobre el tramo que AFORA reemplaza, tomando como referencia 60 IDs y ≈1,200–1,440 horas-persona de postproceso manual. El rango supone que captura, GPS, trazabilidad, cortes lógicos, nomenclatura y salidas quedan resueltos por la plataforma. No incluye correcciones originadas por errores de campo ni actividades posteriores de análisis, modelación o consultoría.';
 
   const legacyHead = document.querySelector('.legacy-process .process-head small');
   const aforaHead = document.querySelector('.afora-process .process-head small');
-  if (legacyHead) legacyHead.textContent = 'FLUJO TRADICIONAL';
-  if (aforaHead) aforaHead.textContent = 'FLUJO CON AFORA';
+  const legacyTitle = document.querySelector('.legacy-process .process-head strong');
+  const aforaTitle = document.querySelector('.afora-process .process-head strong');
+  if (legacyHead) legacyHead.textContent = 'FLUJO ACTUAL';
+  if (aforaHead) aforaHead.textContent = 'MISMO FLUJO, CON AFORA';
+  if (legacyTitle) legacyTitle.textContent = 'El dato se reconstruye después del campo.';
+  if (aforaTitle) aforaTitle.textContent = 'El dato ya nace relacionado en campo.';
 
-  const legacyLabels = ['Levantamiento', 'Descarga + captura', 'Cortes GPS', 'Cruce / QA', 'Conversiones', 'Entrega'];
+  const legacyLabels = ['Levantamiento', 'Captura + descarga', 'Preparación GPS', 'Cruce / QA', 'Conversiones', 'Entrega'];
   document.querySelectorAll('.legacy-process .process-track > div > span').forEach((el, index) => {
     if (legacyLabels[index]) el.textContent = legacyLabels[index];
   });
   const legacyResult = document.querySelector('.legacy-process .process-result strong');
-  if (legacyResult) legacyResult.textContent = 'descarga · cortes · captura · cruces · conversiones · entrega';
+  if (legacyResult) legacyResult.textContent = 'capturar · descargar · cortar · renombrar · cruzar · convertir';
 
   const aforaLabels = ['Levantamiento digital', 'Sync + trazabilidad', 'QA + exportación'];
   document.querySelectorAll('.afora-process .process-track > div > span').forEach((el, index) => {
     if (aforaLabels[index]) el.textContent = aforaLabels[index];
   });
   const aforaResult = document.querySelector('.afora-process .process-result strong');
-  if (aforaResult) aforaResult.textContent = 'QA · excepciones · validar · exportar';
+  if (aforaResult) aforaResult.textContent = 'revisar excepciones · validar · exportar';
 };
 
 if (typeof window !== 'undefined') {
