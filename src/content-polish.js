@@ -23,6 +23,7 @@ function applyAforaCopy() {
   setText('.transformation-copy .eyebrow', 'UN FLUJO MÁS SIMPLE');
   setHTML('.transformation-copy h2', 'Menos pasos después.<br/><em>Más información lista.</em>');
   setText('.transformation-copy > p', 'AFORA organiza la información desde el levantamiento para reducir tareas posteriores de unión, limpieza y preparación. Al terminar el campo, el equipo puede concentrarse en revisar, exportar y analizar.');
+  setText('.time-disclaimer', 'En el flujo actual, preparar un levantamiento para entrega puede requerir aproximadamente 2.5–3 días adicionales después del campo. AFORA concentra captura, GPS, validación y salida para reducir ese trabajo posterior a revisión y exportación.');
 
   setText('#platform .eyebrow', 'CÓMO FUNCIONA');
   setHTML('#platform h2', 'Del levantamiento<br/><em>a la supervisión.</em>');
