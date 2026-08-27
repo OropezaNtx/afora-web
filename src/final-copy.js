@@ -43,9 +43,9 @@ const applyFinalCopy = () => {
     timeProof.innerHTML = `
       <div class="legacy-hours">
         <small>TRAMO MANUAL ACTUAL</small>
-        <strong>1,200–1,440</strong>
+        <strong>≈1,080</strong>
         <b>h-persona</b>
-        <span>captura, GPS y preparación para entrega</span>
+        <span>estimación conservadora para 60 IDs</span>
       </div>
       <div class="time-arrow" aria-hidden="true">→</div>
       <div class="afora-time">
@@ -58,7 +58,7 @@ const applyFinalCopy = () => {
   }
 
   const disclaimer = document.querySelector('.time-disclaimer');
-  if (disclaimer) disclaimer.textContent = 'Proyección operativa sobre el tramo que AFORA reemplaza, tomando como referencia 60 IDs y 1,200–1,440 horas-persona de postproceso manual. El rango supone que captura, GPS, trazabilidad, cortes lógicos, nomenclatura y salidas quedan resueltos por la plataforma. No incluye correcciones originadas por errores de campo ni actividades posteriores de análisis, modelación o consultoría.';
+  if (disclaimer) disclaimer.textContent = 'Estimación conservadora del tramo manual que AFORA optimiza para un estudio de 60 IDs: aproximadamente 45 jornadas de 8 horas con un equipo de 3 personas (≈1,080 horas-persona). La reducción proyectada supone que captura, GPS, trazabilidad, preparación de recorridos, nomenclatura y salidas quedan resueltos por la plataforma. No incluye correcciones originadas por errores de campo ni actividades posteriores de análisis, modelación o consultoría.';
 
   const legacyHead = document.querySelector('.legacy-process .process-head small');
   const aforaHead = document.querySelector('.afora-process .process-head small');
