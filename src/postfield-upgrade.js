@@ -8,13 +8,13 @@ function installPostFieldUpgrade() {
       <div class="postfield-chapter pf-data-foundation">
         <div class="container pf-chapter-grid">
           <div class="pf-copy reveal visible">
-            <span class="eyebrow">DESPUÉS DEL CAMPO · 01</span>
+            <span class="eyebrow">SALIDA DE AFORA · 01</span>
             <h2>Del levantamiento a una<br><em>base técnica utilizable.</em></h2>
-            <p>El trabajo de campo produce recorridos, tiempos, eventos, posiciones y relaciones entre datos. AFORA conserva ese contexto para que el procesamiento posterior empiece con información estructurada.</p>
+            <p>AFORA acompaña el tramo operativo desde el levantamiento hasta la validación y la exportación. Recorridos, tiempos, eventos, posiciones y datos quedan relacionados para entregar una base estructurada sin reconstruir manualmente la operación.</p>
             <div class="pf-proof-list">
               <div><b>01</b><span><strong>Integración</strong><small>Jornadas, rutas, sentidos, unidades y operadores.</small></span></div>
               <div><b>02</b><span><strong>Control de calidad</strong><small>GPS, faltantes, consistencia, eventos y sincronización.</small></span></div>
-              <div><b>03</b><span><strong>Consolidación</strong><small>Datos tabulares, geoespaciales y operacionales.</small></span></div>
+              <div><b>03</b><span><strong>Salida</strong><small>Datos tabulares y geoespaciales listos para continuar.</small></span></div>
             </div>
           </div>
           <div class="pf-foundation-visual reveal visible">
@@ -26,7 +26,7 @@ function installPostFieldUpgrade() {
             <span class="pf-event e1">ASD</span><span class="pf-event e2">C</span><span class="pf-event e3">AD+S</span><span class="pf-event e4">FIN</span>
             <div class="pf-data-source"><small>CAMPO</small><strong>3,271</strong><span>puntos GPS</span><i>8 eventos</i><i>7.22 km</i></div>
             <div class="pf-processing-core"><small>AFORA</small><strong>BASE TÉCNICA</strong><span>contexto + posición + tiempo</span><div><i>VALIDADA</i><i>ESTRUCTURADA</i><i>TRAZABLE</i></div></div>
-            <div class="pf-data-output"><small>SALIDAS</small><strong>Tabular</strong><span>CSV · XLSX</span><strong>Geoespacial</strong><span>GPX · KML · GeoJSON</span></div>
+            <div class="pf-data-output"><small>SALIDA AFORA</small><strong>Tabular</strong><span>CSV · XLSX</span><strong>Geoespacial</strong><span>GPX · KML · GeoJSON</span></div>
             <span class="pf-data-packet d1"></span><span class="pf-data-packet d2"></span><span class="pf-data-packet d3"></span>
           </div>
         </div>
@@ -35,9 +35,9 @@ function installPostFieldUpgrade() {
       <div class="postfield-chapter pf-engineering-use">
         <div class="container">
           <div class="pf-engineering-heading reveal visible">
-            <span class="eyebrow">DESPUÉS DEL CAMPO · 02</span>
-            <h2>La información sigue<br><em>hacia la ingeniería.</em></h2>
-            <p>Una base bien estructurada puede continuar hacia las herramientas y metodologías propias de un estudio de movilidad y transporte. AFORA no pretende sustituirlas: busca entregarles información organizada y trazable desde el origen.</p>
+            <span class="eyebrow">EL ESTUDIO CONTINÚA · 02</span>
+            <h2>AFORA entrega la base.<br><em>La ingeniería continúa.</em></h2>
+            <p>A partir de aquí, AFORA ya no sustituye las metodologías ni las herramientas especializadas del estudio. Su función es entregar información organizada, trazable y georreferenciada para que el equipo continúe con sus procesos habituales.</p>
           </div>
 
           <div class="pf-engineering-story">
@@ -45,7 +45,7 @@ function installPostFieldUpgrade() {
               <div class="pf-band-copy">
                 <span class="pf-kicker">01 · GIS / CARTOGRAFÍA</span>
                 <h3>Del track a la<br><em>lectura territorial.</em></h3>
-                <p>Los recorridos y eventos georreferenciados pueden continuar en QGIS o ArcGIS para analizar cobertura, tramos, paradas, velocidades, puntos críticos y distribución espacial de la operación.</p>
+                <p>Los archivos geoespaciales entregados por AFORA pueden continuar en QGIS o ArcGIS para analizar cobertura, tramos, paradas, velocidades, puntos críticos y distribución espacial de la operación.</p>
                 <div class="pf-tech-row"><span class="pf-brand qgis"><i>Q</i>QGIS</span><span>ArcGIS</span><span>KML</span><span>GeoJSON</span></div>
               </div>
               <div class="pf-gis-stage" aria-label="Mapa GIS animado">
@@ -67,8 +67,8 @@ function installPostFieldUpgrade() {
             <section class="pf-engineering-band pf-band-ops reverse reveal visible">
               <div class="pf-band-copy">
                 <span class="pf-kicker">02 · ANÁLISIS OPERACIONAL</span>
-                <h3>La operación se convierte<br><em>en indicadores.</em></h3>
-                <p>Ascensos, descensos, ocupación, frecuencia, aforos, tiempos y demoras permiten construir perfiles de carga, intervalos, velocidades operacionales y comparativos por ruta, sentido o periodo.</p>
+                <h3>La información puede convertirse<br><em>en indicadores.</em></h3>
+                <p>Con la base entregada, el equipo puede continuar sus cálculos de ascensos, descensos, ocupación, frecuencia, aforos, tiempos y demoras para construir perfiles de carga, intervalos, velocidades y comparativos.</p>
                 <div class="pf-tech-row"><span>ASD</span><span>FOV</span><span>Aforos</span><span>Tiempos</span><span>Demoras</span></div>
               </div>
               <div class="pf-ops-stage">
@@ -86,8 +86,8 @@ function installPostFieldUpgrade() {
             <section class="pf-engineering-band pf-band-data reveal visible">
               <div class="pf-band-copy">
                 <span class="pf-kicker">03 · MATRICES / DATOS</span>
-                <h3>De registros a<br><em>estructuras de análisis.</em></h3>
-                <p>La información puede agruparse por ruta, sentido, periodo, parada, tramo o jornada. SQL, Python o R permiten automatizar consolidaciones, matrices, cruces, indicadores y validaciones específicas del estudio.</p>
+                <h3>De la base a<br><em>estructuras de análisis.</em></h3>
+                <p>Fuera de AFORA, la información puede agruparse por ruta, sentido, periodo, parada, tramo o jornada. SQL, Python o R pueden utilizarse para consolidaciones, matrices, cruces e indicadores específicos del estudio.</p>
                 <div class="pf-tech-row"><span class="pf-brand python"><i>Py</i>Python</span><span>SQL</span><span>R</span><span>OD</span><span>ETL</span></div>
               </div>
               <div class="pf-code-stage">
@@ -113,7 +113,7 @@ matrix = (
               <div class="pf-band-copy">
                 <span class="pf-kicker">04 · MODELACIÓN</span>
                 <h3>Datos observados para<br><em>redes y escenarios.</em></h3>
-                <p>La información levantada puede alimentar procesos especializados de planeación, asignación, capacidad y simulación. Herramientas como PTV Visum, PTV Vissim o modelos propios trabajan mejor cuando el dato observado llega estructurado.</p>
+                <p>La información exportada puede alimentar posteriormente procesos especializados de planeación, asignación, capacidad y simulación en PTV Visum, PTV Vissim u otros modelos del equipo consultor.</p>
                 <div class="pf-tech-row"><span>PTV Visum</span><span>PTV Vissim</span><span>Asignación</span><span>Simulación</span></div>
               </div>
               <div class="pf-model-stage">
@@ -133,11 +133,10 @@ matrix = (
           </div>
 
           <div class="pf-result-rail reveal visible">
-            <div><small>INDICADORES</small><strong>Tiempos · velocidades · demanda · ocupación · frecuencia · demoras</strong></div>
-            <i>→</i><div><small>VISUALIZACIÓN</small><strong>Mapas · perfiles · gráficas · dashboards · comparativos</strong></div>
-            <i>→</i><div><small>ENTREGABLES</small><strong>Bases procesadas · cartografía · archivos GIS · anexos técnicos</strong></div>
+            <div><small>EL ESTUDIO CONTINÚA</small><strong>Indicadores · análisis · cartografía · modelación · entregables</strong></div>
+            <i>→</i><div><small>CON LAS HERRAMIENTAS DEL EQUIPO</small><strong>QGIS · ArcGIS · Python · SQL · R · Visum · Vissim</strong></div>
           </div>
-          <p class="pf-engineering-note">AFORA no reemplaza las herramientas especializadas del estudio. Mejora la información que llega a ellas desde el campo.</p>
+          <p class="pf-engineering-note">AFORA termina su tramo operativo entregando información validada, estructurada y exportable. Las etapas posteriores pertenecen al flujo técnico y metodológico de cada estudio.</p>
         </div>
       </div>`;
   };
