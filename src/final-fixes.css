@@ -1,0 +1,70 @@
+/* AFORA final composition fixes: hero, before/after, post-field spacing and trace alignment. */
+
+/* HERO — cleaner hierarchy, no crowded footer rail */
+.hero{min-height:980px;padding-bottom:110px}
+.hero-content{max-width:760px;padding-top:112px;padding-bottom:120px}
+.hero .hero-eyebrow{letter-spacing:.16em;color:#9eacc0}
+.hero h1{max-width:900px;font-size:clamp(70px,7.4vw,118px);line-height:.88}
+.hero-content>p{max-width:700px;font-size:clamp(18px,1.55vw,22px);line-height:1.72}
+.hero-proof{margin-top:34px!important;margin-bottom:52px;max-width:720px!important}
+.hero-caption{bottom:22px!important}
+.hero .map-label{transform:scale(.92);transform-origin:center}
+
+/* BEFORE / AFTER — make the contrast unmistakable */
+.transformation{padding-block:138px}
+.transformation-grid{grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:82px}
+.process-compare{border:0!important;background:transparent!important;box-shadow:none!important;overflow:visible!important;display:grid;gap:18px}
+.process-side{position:relative;border-radius:24px;border:1px solid rgba(255,255,255,.09);overflow:hidden;padding:34px!important}
+.legacy-process{background:radial-gradient(circle at 88% 12%,rgba(205,126,62,.09),transparent 34%),linear-gradient(155deg,#0b0f14,#090c11);border-color:rgba(219,145,88,.19)}
+.legacy-process:before{content:'ANTES';position:absolute;right:24px;top:20px;padding:6px 9px;border-radius:999px;border:1px solid rgba(224,151,95,.24);background:rgba(155,86,42,.08);color:#d9a273;font-size:8px;font-weight:800;letter-spacing:.17em}
+.afora-process{background:radial-gradient(circle at 88% 10%,rgba(82,150,239,.15),transparent 36%),linear-gradient(155deg,#09121d,#080d14);border-color:rgba(105,167,248,.27);box-shadow:0 28px 90px rgba(25,79,151,.09)}
+.afora-process:before{content:'CON AFORA';position:absolute;right:24px;top:20px;padding:6px 9px;border-radius:999px;border:1px solid rgba(105,167,248,.3);background:rgba(67,127,207,.1);color:#8ebaff;font-size:8px;font-weight:800;letter-spacing:.16em}
+.process-divider{height:48px!important;border:0!important;background:transparent!important;gap:12px!important}
+.process-divider:before{content:'↓';font-size:22px;color:#6fa8f8;text-shadow:0 0 18px rgba(103,167,255,.35)}
+.process-divider span{font-size:8px!important;letter-spacing:.16em!important;padding:6px 10px!important}
+.process-divider i{width:110px!important}
+.legacy-process .process-head strong,.afora-process .process-head strong{padding-right:105px}
+.legacy-process .process-track{margin-top:34px}
+.afora-process .process-track{margin-top:34px}
+.process-result{margin-top:26px}
+
+/* POST-FIELD FOUNDATION — give title and visual their own space */
+.pf-data-foundation .pf-chapter-grid{grid-template-columns:minmax(0,.72fr) minmax(620px,1.28fr);gap:86px;align-items:center}
+.pf-data-foundation .pf-copy{max-width:530px}
+.pf-data-foundation .pf-copy h2{font-size:clamp(52px,4.75vw,76px);line-height:.96;max-width:530px;margin-bottom:28px}
+.pf-data-foundation .pf-copy>p{font-size:16.5px;line-height:1.72;max-width:500px}
+.pf-data-foundation .pf-foundation-visual{min-height:650px;min-width:0}
+.pf-data-foundation .pf-track{inset:11% auto auto 5%;width:57%;height:64%}
+.pf-data-foundation .pf-processing-core{right:26%;top:50%;width:232px}
+.pf-data-foundation .pf-data-output{right:3%;width:18%;padding:18px}
+.pf-data-foundation .pf-event.e1{left:17%;top:58%}
+.pf-data-foundation .pf-event.e2{left:28%;top:45%}
+.pf-data-foundation .pf-event.e3{left:42%;top:32%}
+.pf-data-foundation .pf-event.e4{left:54%;top:17%}
+
+/* TRACEABILITY — anchors follow the actual SVG route */
+.trace-map.detailed-map{position:relative}
+.trace-map .trace-start,.trace-map .trace-delay,.trace-map .trace-end{position:absolute!important;z-index:5;transform:translate(-50%,-50%)!important}
+.trace-map .trace-start{left:7.8%!important;top:80.6%!important}
+.trace-map .trace-delay.d1{left:31.8%!important;top:53.4%!important}
+.trace-map .trace-delay.d2{left:61.9%!important;top:28.7%!important}
+.trace-map .trace-delay.d3{left:75.7%!important;top:45.3%!important}
+.trace-map .trace-end{left:91.9%!important;top:65.9%!important}
+.trace-map .trace-path{stroke-linecap:round;stroke-linejoin:round}
+
+@media(max-width:1180px){
+  .pf-data-foundation .pf-chapter-grid{grid-template-columns:1fr;gap:56px}
+  .pf-data-foundation .pf-copy{max-width:760px}.pf-data-foundation .pf-copy h2{max-width:760px}
+  .pf-data-foundation .pf-foundation-visual{min-height:620px}
+}
+@media(max-width:900px){
+  .transformation-grid{grid-template-columns:1fr;gap:54px}
+  .hero{min-height:100svh;padding-bottom:80px}.hero-content{padding-bottom:130px}
+}
+@media(max-width:700px){
+  .hero{min-height:auto;padding-bottom:90px}.hero-content{padding-top:118px;padding-bottom:70px}.hero-proof{margin-bottom:22px}
+  .process-side{padding:26px 18px!important}.legacy-process .process-head strong,.afora-process .process-head strong{padding-right:0;padding-top:30px}
+  .pf-data-foundation .pf-foundation-visual{min-height:720px}
+  .pf-data-foundation .pf-processing-core{left:50%;right:auto;top:53%;transform:translate(-50%,-50%);width:200px}
+  .pf-data-foundation .pf-data-output{left:50%;right:auto;top:auto;bottom:4%;width:78%;transform:translateX(-50%)}
+}
