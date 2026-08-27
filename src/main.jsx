@@ -14,8 +14,10 @@ import './ambient-motion.css';
 import './production-final.css';
 import './postfield-upgrade.css';
 import './brand-logo.css';
+import './final-fixes.css';
 import './content-polish.js';
 import './postfield-upgrade.js';
+import './final-copy.js';
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
