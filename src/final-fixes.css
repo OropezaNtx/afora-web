@@ -84,15 +84,21 @@
 .pf-engineering-band{padding-block:88px!important}
 .pf-band-copy h3{letter-spacing:-.035em}
 
-/* TRACEABILITY — anchors follow the actual SVG route */
-.trace-map.detailed-map{position:relative}
-.trace-map .trace-start,.trace-map .trace-delay,.trace-map .trace-end{position:absolute!important;z-index:5;transform:translate(-50%,-50%)!important}
-.trace-map .trace-start{left:7.8%!important;top:80.6%!important}
+/* TRACEABILITY — route-aligned anchors + technical map treatment */
+.trace-map.detailed-map{position:relative;background:radial-gradient(circle at 61% 38%,rgba(74,137,226,.13),transparent 34%),linear-gradient(rgba(80,116,160,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(80,116,160,.045) 1px,transparent 1px),#080b10;background-size:auto,54px 54px,54px 54px,auto}
+.trace-map.detailed-map:before{content:'TRACK GPS · RUTA 2 / IDA';position:absolute;left:22px;top:18px;z-index:3;font-size:7px;letter-spacing:.16em;color:#50657f}
+.trace-map.detailed-map:after{content:'WGS84  ·  ±8 m  ·  3,270 pts  ·  8 eventos';position:absolute;right:22px;top:18px;z-index:3;font-size:7px;letter-spacing:.11em;color:#50657f}
+.trace-map .trace-start,.trace-map .trace-delay,.trace-map .trace-end{position:absolute!important;z-index:7;transform:translate(-50%,-50%)!important}
+.trace-map .trace-start,.trace-map .trace-end{min-width:52px!important;padding:7px 11px!important;text-align:center!important;line-height:1!important;border:1px solid rgba(92,231,153,.36)!important;background:#4fdb8b!important;color:#06110b!important;box-shadow:0 0 0 6px rgba(79,219,139,.07),0 0 22px rgba(79,219,139,.15)!important}
+.trace-map .trace-start{left:16.2%!important;top:77.2%!important}
 .trace-map .trace-delay.d1{left:31.8%!important;top:53.4%!important}
 .trace-map .trace-delay.d2{left:61.9%!important;top:28.7%!important}
 .trace-map .trace-delay.d3{left:75.7%!important;top:45.3%!important}
-.trace-map .trace-end{left:91.9%!important;top:65.9%!important}
+.trace-map .trace-end{left:91.2%!important;top:61.7%!important}
 .trace-map .trace-path{stroke-linecap:round;stroke-linejoin:round}
+.trace-map svg:before{pointer-events:none}
+.trace-map .trace-delay{z-index:6!important}
+.trace-map .trace-summary{z-index:8!important}
 
 @media(max-width:1180px){
   .transformation{padding-block:118px}
@@ -107,6 +113,7 @@
   .time-proof{grid-template-columns:1fr!important;gap:12px!important}.time-arrow{width:34px!important;min-width:34px!important;height:34px!important;min-height:34px!important;transform:rotate(90deg)}
   .time-proof strong{white-space:normal}
   .process-side{min-height:0}.process-head{grid-template-columns:1fr;gap:10px}.process-head strong{justify-self:start;text-align:left;max-width:100%}
+  .trace-map.detailed-map:after{display:none}
 }
 @media(max-width:700px){
   .hero{min-height:auto;padding-bottom:90px}.hero-content{padding-top:118px;padding-bottom:70px}.hero-proof{margin-bottom:22px}
@@ -116,4 +123,5 @@
   .pf-data-foundation .pf-foundation-visual{min-height:720px}
   .pf-data-foundation .pf-processing-core{left:50%;right:auto;top:53%;transform:translate(-50%,-50%);width:200px}
   .pf-data-foundation .pf-data-output{left:50%;right:auto;top:auto;bottom:4%;width:78%;transform:translateX(-50%)}
+  .trace-map .trace-start,.trace-map .trace-end{min-width:44px!important;padding:6px 8px!important;font-size:7px!important}
 }
